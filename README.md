@@ -6,7 +6,11 @@ The site is intentionally lightweight. It uses plain HTML, CSS and a small JavaS
 
 ## Files
 
-- `index.html` — all visible website content and links
+- `index.html` — homepage content and links
+- `radar/index.html` — generated Weekly Radar archive
+- `radar/YYYY-MM-DD.html` — generated newsletter issue pages
+- `radar/issues/` — weekly newsletter Markdown source files
+- `scripts/build-radar.mjs` — dependency-free newsletter page generator (Node.js 22+)
 - `styles.css` — colours, typography, layout and responsive design
 - `script.js` — automatically updates the copyright year
 - `assets/` — logo and image assets used by the site
@@ -92,6 +96,32 @@ This website was created with AI assistance. Its content is based on human-provi
 - Avoid adding analytics, cookies or a contact form until there is a clear need and an appropriate privacy setup.
 
 ## Updating the live site
+
+### Add a weekly RIDA Radar issue
+
+1. Save the new Markdown file in `radar/issues/` as `rida-radar-YYYY-MM-DD.md`.
+2. Use the pilot's front matter, with a unique issue number and a matching date:
+
+   ```yaml
+   ---
+   title: "RIDA Radar — Issue 002"
+   date: 2026-10-24
+   description: "A weekly catch-up on infectious disease research, methods and policy."
+   category: "RIDA Radar"
+   status: draft
+   issue: 2
+   ---
+   ```
+
+3. Write the issue using paragraphs, `##` sections, `###` item headings, `-` bullet lists, `**bold**`, `*italic*`, Markdown links and `---` dividers. Raw HTML is escaped. The page supplies the main heading and a contents list automatically.
+4. Run `node scripts/build-radar.mjs` with Node.js 22 or newer. No packages need installing. The archive sorts issues by date, with the newest at the top. The script also refreshes the existing `dist/` static hosting copy.
+5. Preview the homepage, `radar/` and the new issue locally, including on a narrow screen. Stage the Markdown, generated HTML and updated `dist/` files together.
+
+Draft issues are included and clearly labelled **Pre-release draft**. The pilot's wording and editorial note are preserved. The status is a visible label, not access control: every file in `radar/` is included in deployment. Keep private drafts outside this folder. Before publishing a final edition, finish the editorial checks, update any draft wording in the issue body and set `status: published`.
+
+GitHub Pages rebuilds the newsletter pages automatically before deployment. If deploying through another static host, regenerate the pages and include the `radar/` folder alongside the homepage and assets.
+
+### Review and publish
 
 After editing and reviewing locally:
 
