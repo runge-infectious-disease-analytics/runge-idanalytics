@@ -7,6 +7,8 @@ The site is intentionally lightweight. It uses plain HTML, CSS and a small JavaS
 ## Files
 
 - `index.html` — all visible website content and links
+- `legal.html` — operator, branding, UID and contact information
+- `privacy.html` — privacy information for hosting, external fonts and email enquiries
 - `styles.css` — colours, typography, layout and responsive design
 - `script.js` — automatically updates the copyright year
 - `assets/` — logo and image assets used by the site
@@ -86,7 +88,7 @@ This website was created with AI assistance. Its content is based on human-provi
 
 - Replace the email address if a dedicated RIDA address becomes available.
 - Confirm the final professional and conflict-of-interest wording.
-- Decide whether to add a short legal notice and privacy statement.
+- Review the legal notice and privacy statement against the actual business details and data-processing practices. The legal notice currently gives the business location only; a street address has deliberately not been published. Check any applicable full-address requirements before launch.
 - Test every link on desktop and mobile.
 - Consider replacing the externally loaded Google fonts with locally hosted or system fonts if avoiding third-party font requests is important.
 - Avoid adding analytics, cookies or a contact form until there is a clear need and an appropriate privacy setup.
